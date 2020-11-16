@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>Simple calculator</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width initial-scale=1"/>
+	<style type="text/css">
+		button{
+			background-color:  aqua;
+			width:2em;
+			}
+			table{
+				background-color:  black;
+				width:200px;
+			}
+	</style>
+</head>
+<body>
+   <table frame="border">
+   	<tr>
+   		<td colspan="4"><input type="text" placeholder="Enter your expression" id="expression_field" value=""/></td>
+   	</tr>
+   	<tr>
+   		<td><button type="button" onclick="annon(1)">1</button></td>
+   		<td><button type="button" onclick="annon(2)">2</button></td>
+   		<td><button type="button" onclick="annon(3)">3</button></td>
+   		<td><button type="button" onclick="annon('+')">+</button></td>
+   	</tr>
+   	<tr>
+   		<td><button type="button" onclick="annon(4)">4</button></td>
+   		<td><button type="button" onclick="annon(5)">5</button></td>
+   		<td><button type="button" onclick="annon(6)">6</button></td>
+   		<td><button type="button" onclick="annon('-')">-</button></td>
+   	</tr>
+   	<tr>
+   		<td><button type="button" onclick="annon(7)">7</button></td>
+   		<td><button type="button" onclick="annon(8)">8</button></td>
+   		<td><button type="button" onclick="annon(9)">9</button></td>
+   		<td><button type="button" onclick="annon('/')">/</button></td>
+   	</tr>
+   	<tr>
+   		<td><button type="button" onclick="annon(0)">0</button></td>
+   		<td><button type="button" onclick="annon('*')">*</button></td>
+   		<td><button type="button" onclick="equalpress()">=</button></td>
+   		<td><button type="button" onclick="del()">del</button></td>
+   	</tr>
+   </table>
+<script type="text/javascript">
+	/*make the expression variable global*/
+	/*function to generate the expression*/
+    expression=""
+    function annon(num){
+    	expression=expression+num.toString()
+	    document.getElementById("expression_field").value=expression;
+	}
+	/*function to calculate the total*/
+    function  equalpress(){
+    	try{
+    		total=eval(expression).toString()
+    		document.getElementById("expression_field").value=total;
+    	}catch(e){
+    		document.getElementById("expression_field").value="enter a valid expression";
+    	}
+    	expression="";
+    }
+    /*function to clear the variable*/
+    function del(){
+    	expression=""
+        document.getElementById("expression_field").value="";      
+    }
+</script>
+</body>
+</html>
